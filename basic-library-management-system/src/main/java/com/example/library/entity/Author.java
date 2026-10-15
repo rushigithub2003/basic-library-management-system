@@ -1,10 +1,12 @@
 package com.example.library.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class Author {
 
+	@Id
 	private int id;
 	private String name;
 	private String email;
