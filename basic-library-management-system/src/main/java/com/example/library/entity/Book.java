@@ -1,12 +1,15 @@
 package com.example.library.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Book {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	private int price;
@@ -59,11 +62,10 @@ public class Book {
 	}
 
 	public void setQuantity(int quantity) {
-		if(quantity >0)
-		{
+		if (quantity > 0) {
 			this.quantity += quantity;
 		}
-		
+
 	}
 
 }
