@@ -14,8 +14,12 @@ import com.example.library.service.MemberService;
 @RestController
 public class MemberController {
 
+	private MemberService ms;
+
 	@Autowired
-	MemberService ms;
+	public void setMemberService(MemberService memberServiceImpl) {
+		this.ms = memberServiceImpl;
+	}
 
 	@PostMapping("member")
 	String addMember(@RequestBody Member m) {
