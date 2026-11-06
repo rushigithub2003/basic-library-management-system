@@ -11,12 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.library.entity.Book;
 import com.example.library.service.BookService;
 
-
 @RestController
 public class BookController {
 
+	private BookService bs;
+
 	@Autowired
-	BookService bs;
+	public void setBookService(BookService bookServiceImpl) {
+		this.bs = bookServiceImpl;
+	}
 
 	@PostMapping("Book")
 	String addBook(@RequestBody Book b) {
@@ -34,10 +37,9 @@ public class BookController {
 		bs.deleteById(id);
 		return "Book Delete";
 	}
-	
+
 	@DeleteMapping("Book")
-	String deleteAllBook()
-	{
+	String deleteAllBook() {
 		bs.deleteAllBook();
 		return "All Book Deleted";
 	}
