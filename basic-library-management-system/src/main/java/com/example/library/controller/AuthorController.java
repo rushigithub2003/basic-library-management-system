@@ -14,8 +14,12 @@ import com.example.library.service.AuthorService;
 @RestController
 public class AuthorController {
 
+	private AuthorService as;
+
 	@Autowired
-	AuthorService as;
+	public void setAuthorService(AuthorService authorServiceImpl) {
+		this.as = authorServiceImpl;
+	}
 
 	@PostMapping("author")
 	String addAuthor(@RequestBody Author a) {
